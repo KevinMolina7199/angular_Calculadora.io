@@ -3,13 +3,19 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {MensajeComponent} from './mensaje/mensaje.component';
 
 @Component({
   selector: 'my-app',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MensajeComponent],
   templateUrl: `./main.html`,
   styleUrls: ['./main.css'],
+  template: `
+    <h1>Padre</h1>
+    <app-mensaje [name]="nombre" (messageEvent)="receiveMessage($event)"></app-mensaje>
+    <p>El mensaje enviado desde el MensajeComponent es: {{message}}</p>
+  `
 })
 export class App {
   name = 'Kevin Molina';
@@ -21,6 +27,8 @@ export class App {
   resultadoResta = 0;
   resultadoMultiplicacion = 0;
   resultadoDiv = 0;
+
+
   calcularSuma() {
     console.log('Hola UPS');
     this.contador = this.contador + 1;
@@ -45,6 +53,15 @@ export class App {
   }
 
   // Resto del código de la calculadora
+  
+  message!: string;
+
+  receiveMessage($event: string) {
+    this.message = $event;
+  }
+
 }
+
+
 
 bootstrapApplication(App);
