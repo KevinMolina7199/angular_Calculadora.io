@@ -1,0 +1,40 @@
+<h1>Hola {{name}}!</h1>
+<h2>{{cargo}}</h2>
+<a target="_blank" href="https://angular.io/start"> UPS </a>
+
+<p>{{contador}}</p>
+
+<label for="txtA"> A: </label>
+<input id="txtA" [(ngModel)]="a" />
+<label for="txtB"> B: </label>
+<input id="txtB" [(ngModel)]="b" />
+
+<h2>Calculadora Basica</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Operación</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><button (click)="calcularSuma()">Suma</button></td>
+      <td>{{ resultadoSuma }}</td>
+    </tr>
+    <tr>
+      <td><button (click)="calcularResta()">Resta</button></td>
+      <td>{{ resultadoResta }}</td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="calcularMultiplicacion()">Multiplicación</button>
+      </td>
+      <td>{{ resultadoMultiplicacion }}</td>
+    </tr>
+    <tr>
+      <td><button (click)="calcularDiv()">División</button></td>
+      <td>{{ resultadoDiv }}</td>
+    </tr>
+  </tbody>
+</table>
